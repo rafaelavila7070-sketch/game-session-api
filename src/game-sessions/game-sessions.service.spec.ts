@@ -7,6 +7,12 @@ import { GameSessionsService } from './game-sessions.service';
 import { GameSession } from './entities/game-session.entity';
 import { PlayersService } from '../players/players.service';
 
+  type TestPlayer = {
+  id: number;
+  name: string;
+  email: string;
+};
+
 describe('GameSessionsService', () => {
   let service: GameSessionsService;
 
@@ -58,11 +64,11 @@ describe('GameSessionsService', () => {
   });
 
   it('should create a game session when the player exists', async () => {
-    const player = {
+    const player: TestPlayer ={
       id: 1,
       name: 'Rafael',
       email: 'rafael@example.com',
-    } as any;
+    };
 
     const savedSession = {
       id: 10,
@@ -179,11 +185,11 @@ describe('GameSessionsService', () => {
   ).not.toHaveBeenCalled();
 })
   it('should preserve the player when updating only the score', async () => {
-  const player = {
+  const player: TestPlayer = {
     id: 1,
     name: 'Rafael',
     email: 'rafael@example.com',
-  } as any;
+  };
 
   const existingSession = {
     id: 1,
@@ -218,11 +224,11 @@ describe('GameSessionsService', () => {
   );
 });
   it('should return a game session by id', async () => {
-  const player = {
+  const player: TestPlayer = {
     id: 1,
     name: 'Rafael',
     email: 'rafael@example.com',
-  } as any;
+  };
 
   const gameSession = {
     id: 1,
@@ -263,11 +269,11 @@ describe('GameSessionsService', () => {
   });
 });
   it('should return all game sessions', async () => {
-  const player = {
+  const player: TestPlayer = {
     id: 1,
     name: 'Rafael',
     email: 'rafael@example.com',
-  } as any;
+  };
 
   const sessions = [
     {
